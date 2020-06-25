@@ -23,7 +23,8 @@ With this wide chamber of various sentiments available on the internet, we were 
 
 ## Statistical test conducted ##
 
-**two-Sample T-test between Popeyes & Chick-Fil-A**
+*two-Sample T-test between Popeyes & Chick-Fil-A*
+
  *Performed a T-Test analysis on both samples for each emotion. We ended up performing ten total tests based on each emotions on both samples.*
 
 
@@ -31,6 +32,6 @@ With this wide chamber of various sentiments available on the internet, we were 
 
 **The tweets were rated as Positive or Negative.**
 
-**Naive Bayes was then applied to find the accuracy of the model after splitting the data into 80:20 ratio. 
+**Naive Bayes was then applied to find the accuracy of the model after splitting the data into 80:20 ratio.**
 
-**An accuracy of 80% was achieved by Naive Bayes method. 
+**An accuracy of 80% was achieved by Naive Bayes method.**
