@@ -1,6 +1,6 @@
 Run each of the code one by one. 
 
-Created a script by dividing it into multiple parts so that problem can be figured out easily and is easier to read than having all combined in one script
+Created the whole text analysis scripts by dividing it into multiple parts so that problem can be figured out easily and is easier to read than having all combined in one script
 
 If you running the code one by one, keep in mind that you may not need to call the library every time you do so. 
 
