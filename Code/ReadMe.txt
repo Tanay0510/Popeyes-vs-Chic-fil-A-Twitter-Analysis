@@ -27,4 +27,6 @@ You can download the pre-trained word vectors
 
 https://github.com/stanfordnlp/GloVe
 
+Since the topic modelling code is not linked to each other and is completely independent from each other, you can use it in any order you want to. 
+
 Happy Learning and hope someone takes it to another level. 
