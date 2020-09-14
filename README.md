@@ -20,7 +20,6 @@ Other violent incidents occurred in the ensuing months, some of which we were ab
 With this wide chamber of various sentiments available on the internet, we were interested to see how these events impacted people’s thoughts and opinions on the restaurants and if the controversies surrounding them had any impact on public sentiments. We then wanted to be able to leverage the sentiment and Twitter data in order to provide valuable feedback to the companies so they would be in a better position to deal with these types of events.
 
 
-
 ## Statistical test conducted ##
 
 *two-Sample T-test between Popeyes & Chick-Fil-A*
@@ -34,4 +33,4 @@ With this wide chamber of various sentiments available on the internet, we were 
 
 *Naive Bayes was then applied to find the accuracy of the model after splitting the data into 80:20 ratio.*
 
-*An accuracy of 80% was achieved by Naive Bayes method.*
+*An accuracy of 70-80% was achieved by Naive Bayes method.*
