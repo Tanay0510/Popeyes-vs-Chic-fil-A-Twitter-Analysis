@@ -4,9 +4,9 @@ library(rtweet)
 
 # Twitter API Authentication
 
-app.name <- "Text-Sentiment Analysis"
-consumer.key <- "csvtGXfIyQE1GCRhkQdy7QMN3"
-consumer.secret <- "XpDgf4yiorV4YrwFI6ga6dFtDzGhl6YSqp3sHAPCRXOGjcemJW"
+app.name <- "#########"
+consumer.key <- "###############"
+consumer.secret <- "#################"
 token <- create_token (app = app.name, consumer_key = consumer.key, consumer_secret = consumer.secret)
 
 # Declare Name
