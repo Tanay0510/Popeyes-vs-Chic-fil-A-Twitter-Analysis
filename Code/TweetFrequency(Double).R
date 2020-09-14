@@ -54,13 +54,13 @@ if(Sys.info()["sysname"]  == "Darwin") {
   
   save_as_csv(FirstSearch, paste0("~/Desktop/", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
-  save_as_csv(FirstSearch, paste0("~/Desktop/", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(SecondSearch, paste0("~/Desktop/", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 } else {
   
   save_as_csv(FirstSearch, paste0("~\\Desktop\\", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
-  save_as_csv(FirstSearch, paste0("~\\Desktop\\", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(SecondSearch, paste0("~\\Desktop\\", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 }
 
@@ -92,17 +92,17 @@ TweetFrequencySecondSearch
 
 # Frequency of Tweets (2)
 
-ts_plot(TweetFrequencyFirstSearch, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
+ts_plot(TweetFrequencySecondSearch, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
 
 Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~/Desktop/", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencySecondSearch), paste0("~/Desktop/", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 } else {
   
-  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~\\Desktop\\", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencySecondSearch), paste0("~\\Desktop\\", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 }
 
