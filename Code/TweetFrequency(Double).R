@@ -11,10 +11,7 @@ library(RWeka)
 library(dplyr)
 library(tidytext)
 library(ape) 
-library(doMC)
 library(TSstudio)
-
-registerDoMC(cores=detectCores())
 
 # Twitter API Authentication
 
@@ -43,9 +40,9 @@ name2 <<- "Popeyes"
 
 ## ISO Language Codes (https://www.iso.org/iso-639-language-codes.html)
 
-nk <- search_tweets(q = "chicfila OR chickfila", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
+FirstSearch <- search_tweets(q = "chicfila OR chickfila", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
 
-cbo <- search_tweets(q = "popeye OR popeyes", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
+SecondSearch <- search_tweets(q = "popeye OR popeyes", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
 
 # https://www.rdocumentation.org/packages/rtweet/versions/0.6.9/topics/search_tweets
 
@@ -55,15 +52,15 @@ Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  save_as_csv(nk, paste0("~/Desktop/", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~/Desktop/", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
-  save_as_csv(nk, paste0("~/Desktop/", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~/Desktop/", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 } else {
   
-  save_as_csv(nk, paste0("~\\Desktop\\", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~\\Desktop\\", name1 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
-  save_as_csv(nk, paste0("~\\Desktop\\", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~\\Desktop\\", name2 ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 }
 
@@ -71,47 +68,47 @@ if(Sys.info()["sysname"]  == "Darwin") {
 
 # Option 1 - secs, mins, hours, days, weeks, months, or years
 
-agg1 <- ts_data(nk, "days")
+TweetFrequencyFirstSearch <- ts_data(FirstSearch, "days")
 
-agg1
+TweetFrequencyFirstSearch
 
-ts_plot(agg1, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
+ts_plot(TweetFrequencyFirstSearch, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
 
 Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~/Desktop/", name1 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~/Desktop/", name1 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 } else {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~\\Desktop\\", name1 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~\\Desktop\\", name1 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 }
 
-agg2 <- ts_data(cbo, "days")
+TweetFrequencySecondSearch <- ts_data(SecondSearch, "days")
 
-agg2
+TweetFrequencySecondSearch
 
 # Frequency of Tweets (2)
 
-ts_plot(agg1, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
+ts_plot(TweetFrequencyFirstSearch, title = "Time Series of Tweets (Interval: Days)", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
 
 Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~/Desktop/", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~/Desktop/", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 } else {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~\\Desktop\\", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~\\Desktop\\", name2 ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 }
 
-# Frequency of Tweets (1 & 2) 
+# Frequency of Tweets (1 & 2)  
 
-dfagg <- cbind(agg1, agg2)
+dfagg <- cbind(TweetFrequencyFirstSearch, TweetFrequencySecondSearch)
 
 colnames(dfagg) <- c('Time','", name1 ,"','Time','", name2 ,"')
 

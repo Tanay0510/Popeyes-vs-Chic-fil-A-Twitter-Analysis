@@ -37,7 +37,7 @@ name <<- "Chicfila"
 
 ## ISO Language Codes (https://www.iso.org/iso-639-language-codes.html)
 
-nk <- search_tweets(q = "chicfila OR chickfila", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
+FirstSearch <- search_tweets(q = "chicfila OR chickfila", n = 1000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
 
 # https://www.rdocumentation.org/packages/rtweet/versions/0.6.9/topics/search_tweets
 
@@ -47,11 +47,11 @@ Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  save_as_csv(nk, paste0("~/Desktop/", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~/Desktop/", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 } else {
   
-  save_as_csv(nk, paste0("~\\Desktop\\", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~\\Desktop\\", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 }
 
@@ -59,21 +59,20 @@ if(Sys.info()["sysname"]  == "Darwin") {
 
 # Option 1 - secs, mins, hours, days, weeks, months, or years
 
-agg1 <- ts_data(nk, "days")
+TweetFrequencyFirstSearch <- ts_data(FirstSearch, "days")
 
-agg1
 
-ts_plot(agg1, title = "Time Series of Tweets", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
+ts_plot(TweetFrequencyFirstSearch, title = "Time Series of Tweets", Xtitle = "Date and Time", Ytitle = "Frequency of Tweets", slider = TRUE, line.mode =  "lines+markers")
 
 Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~/Desktop/", name ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~/Desktop/", name ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 } else {
   
-  htmlwidgets::saveWidget(ts_plot(agg1), paste0("~\\Desktop\\", name ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
+  htmlwidgets::saveWidget(ts_plot(TweetFrequencyFirstSearch), paste0("~\\Desktop\\", name ,"-Tweet-Freq ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".html"))
   
 }
 
