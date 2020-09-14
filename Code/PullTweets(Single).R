@@ -4,9 +4,9 @@ library(rtweet)
 
 # Twitter API Authentication
 
-app.name <- "#########"
-consumer.key <- "###############"
-consumer.secret <- "#################"
+app.name <- "############"
+consumer.key <- "#################"
+consumer.secret <- "####################"
 token <- create_token (app = app.name, consumer_key = consumer.key, consumer_secret = consumer.secret)
 
 # Declare Name
@@ -25,7 +25,7 @@ name <<- "Chicfila"
 
 ## ISO Language Codes (https://www.iso.org/iso-639-language-codes.html)
 
-nk <- search_tweets(q = "chicfila OR chickfila", n = 10000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
+FirstSearch <- search_tweets(q = "chicfila OR chickfila", n = 10000, include_rts = FALSE, token = token, lang="en", type = "mixed", retryonratelimit = FALSE)
 
 # https://www.rdocumentation.org/packages/rtweet/versions/0.6.9/topics/search_tweets
 
@@ -36,10 +36,11 @@ Sys.info()["sysname"]
 
 if(Sys.info()["sysname"]  == "Darwin") {
   
-  save_as_csv(nk, paste0("~/Desktop/", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~/Desktop/", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 } else {
   
-  save_as_csv(nk, paste0("~\\Desktop\\", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
+  save_as_csv(FirstSearch, paste0("~\\Desktop\\", name ,"-Tweets ", format(Sys.time(), "%d-%b-%Y %H.%M"), ".csv"))
   
 }
+
