@@ -9,4 +9,14 @@ You will already have a csv file after running the Pull Tweets code. Just read i
 
 The script is made such that it will automatically save the graphs on your machine so that you don't have to save all the graphs individually.
 
+Order in which to run the code :
+
+1. Pull Tweets
+2. Tweet Frequency 
+3. Sentiment Analysis
+4. Word Association
+5. Dendrogram
+6. Tweet Rating
+7. Classification
+
 Happy Learning and hope someone takes it to another level. 
