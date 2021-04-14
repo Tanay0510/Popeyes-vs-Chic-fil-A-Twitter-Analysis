@@ -21,8 +21,8 @@ Order in which to run the code :
 
 Use the Topic Modelling code if you want to perform topic modelling. 
 
-You need to donwload the "english-ewt-ud-2.5-191206.udpipe" file and save it to your working directory in order for this to work. 
-You will aslo need to donwload the GloVe model for distributed word representation. Here is the link from where you can download them. 
+You need to download the "english-ewt-ud-2.5-191206.udpipe" file and save it to your working directory in order for this to work. 
+You will also need to donwload the "GloVe" model for distributed word representation. Here is the link from where you can download them. 
 You can download the pre-trained word vectors
 
 https://github.com/stanfordnlp/GloVe
